@@ -11,25 +11,29 @@ export class FoodService {
 
   constructor() { }
 
-  getAllFoodByTag(tag:string): Foods[]{
-    return tag == "All"?
-    this.getAll(): this.getAll().filter(food => food.tags?.includes(tag));    
+  getFoodById(id: number): Foods {
+    return this.getAll().find(food => food.id == id)!;
   }
 
-  getAllTag():Tag[]{
+  getAllFoodByTag(tag: string): Foods[] {
+    return tag == "All" ?
+      this.getAll() : this.getAll().filter(food => food.tags?.includes(tag));
+  }
+
+  getAllTag(): Tag[] {
     return [
-      { name: "All", count: 8},
-      { name: "FastFood", count: 6},
-      { name: "Pizza", count: 4},
-      { name: "Lunch", count: 3},
-      { name: "SlowFood", count: 2},
-      { name: "Hamburguer", count: 1},
-      { name: "Fried", count: 1},
-      { name: "Soup", count: 1},
+      { name: "All", count: 8 },
+      { name: "FastFood", count: 6 },
+      { name: "Pizza", count: 4 },
+      { name: "Lunch", count: 3 },
+      { name: "SlowFood", count: 2 },
+      { name: "Hamburguer", count: 1 },
+      { name: "Fried", count: 1 },
+      { name: "Soup", count: 1 },
     ]
   }
-  
-  getAll():Foods[]{
+
+  getAll(): Foods[] {
     return [
       {
         id: 1,
